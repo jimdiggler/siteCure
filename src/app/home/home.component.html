@@ -1,0 +1,38 @@
+<section>
+    <div class="gradientBackground">
+        <div class="container flex-center">
+            <div class="row flex-center pt-5 ">
+                <div class="col-12 col-md-6 text-center text-md-left margins">
+                    <h1>Votre Location à Bagnoles de l'Orne</h1>
+                    <h6>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
+                        elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente, fugiat!
+                        Commodi sequi
+                        non animi ea dolor molestiae iste.
+                        Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
+                        elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente, fugiat!
+                        Commodi sequi
+                        non animi ea dolor molestiae iste.
+                    </h6>
+                    <button class="btn btn-outline-light" routerLink="/flats/contact">Contact</button>
+                </div>
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                    <img class="logo" src="./assets/logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="rowCard">
+    <div *ngFor="let flat of flats">
+        <div class="card" style="width: 18rem;">
+            <img src="{{flat.photo1}}" class="card-img-top" alt="Photo Appartement">
+            <div class="card-body">
+                <h5 class="card-title">{{flat.name}}</h5>
+                <h6 class="card-text">{{flat.type}} à partir de {{flat.lowSeason}} €</h6>
+                <a routerLink="/flats/{{flat.id}}" class="btn btn-outline-dark" >En Savoir Plus</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,6 +1,6 @@
 import { Flat } from '../beans/flat';
 
-export const FLAT: Flat[] = [
+export const FLATS: Flat[] = [
     {
         id: '0',
         name: 'Le Blue Bay',
@@ -18,7 +18,7 @@ export const FLAT: Flat[] = [
         type: 'Appartement',
         location: 'Bagnoles de l\'Orne',
         area: '30m2',
-        photo1: './assets',
+        photo1: './assets/photoFlat/flatJc.jpg',
         description: 'Appartement 2 personnes tout équipé situé au 1er étage sans ascenseur, entièrement rénové. Cuisine fermée aménagée comprenant évier, plaque de cuisson vitro-céramique, micro-ondes, four, hotte,lave vaiselle, réfrigérateur avec congélateur. Salle de bain avec douche, sèche serviette, lave-linge. WC séparé. Salon avec télévision. Place de parking privée. Navette au pied de l\'immeuble, À 500 mètres des thermes.',
         lowSeason: 560,
         pickSeason: 610
@@ -40,7 +40,7 @@ export const FLAT: Flat[] = [
         type: 'Studio',
         location: 'Bagnoles de l\'Orne',
         area: '25m2',
-        photo1: './assets',
+        photo1: './assets/photoFlat/flatJc.jpg',
         description: 'Studio 2 personnes tout équipé situé au 2éme étage sans ascenseur, entièrement rénové. Cuisine fermé aménagée comprenant évier, plaque de cuisson vitro-céramique, micro-ondes, four, hotte,mini,lave vaiselle, réfrigérateur avec congélateur, . Salle de bain avec douche, sèche serviette, lave-linge et WC. Télévision. Equipée WIFI. Place de parking privée. Navette au pied de l\'immeuble, À 800 mètres des thermes. Chéques vacances acceptés ',
         lowSeason: 500,
         pickSeason: 540

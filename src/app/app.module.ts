@@ -17,6 +17,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FlatContactComponent } from './flat-contact/flat-contact.component';
 
 
 
@@ -26,6 +29,8 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     FlatDetailComponent,
     FlatBookingComponent,
+    HomeComponent,
+    FlatContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule
    
   ],
   entryComponents: [

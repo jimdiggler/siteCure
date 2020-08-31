@@ -1,11 +1,26 @@
-.card {
-    max-width: 600px;
-    margin: auto;
-    margin-top: 20px;
-    box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+.gradientBackground {
+    background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: whitesmoke;
 }
 
-.header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+}
+
+.container {
+    margin-top: -50px;
+}
+
+.col-12 {
+    padding-top: 50px;
+}
+
+

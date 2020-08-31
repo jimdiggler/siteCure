@@ -10,10 +10,12 @@ import { FlatDetailComponent } from 'src/app/flat-detail/flat-detail.component';
 export class MenuComponent implements OnInit {
 
   navLinks = [
-    { label: 'Le Blue Bay', link: '/flat/0', index: 0 }, //Add link of menu
-    { label: 'Le Bel Air', link: '/flat/1', index: 1 },
-    { label: 'le Rose Hill', link: '/flat/2', index: 2},
-    { label: 'le Floréal', link: '/flat/3', index: 3 },
+    { label: 'Appartements', link: '/flats/home'},
+    { label: 'Le Blue Bay', link: '/flats/0'}, //Add link of menu
+    { label: 'Le Bel Air', link: '/flats/1'},
+    { label: 'Le Rose Hill', link: '/flats/2'},
+    { label: 'Le Floréal', link: '/flats/3'},
+    { label: 'Contact', link: '/flats/contact'}
   ]
   activeLinkIndex: number = -1;
 
@@ -22,6 +24,8 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));//Permet le fonctionnement animation menu
+      console.log(this.router.url);
+      
   });
   }
 
