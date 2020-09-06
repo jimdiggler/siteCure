@@ -9,22 +9,36 @@ import { FlatsService } from '../services/flats.service';
 })
 export class HomeComponent implements OnInit {
 
-  breakpoint: number;
-  breakpoint2: number;
+  //----------------------------------------------------------------------------------------
+  //ATTRIBUTS
+  //----------------------------------------------------------------------------------------
 
   flats: Flat[];
 
+  //----------------------------------------------------------------------------------------
+  //CONSTRUCTOR
+  //----------------------------------------------------------------------------------------
   constructor(private flatsService: FlatsService) { }
 
-  ngOnInit(): void {
-    this.breakpoint = (window.innerWidth >= 400) ? 2 : 1;
-    this.breakpoint2 = (window.innerWidth >= 400) ? 2 : 1;
-    this.flats = this.flatsService.getFlats();
+  ngOnInit(){
+    this.loadFlats();
   }
 
-  onResize(event) {
-    this.breakpoint = (event.target.innerWidth >= 400) ? 2 : 1;
-    this.breakpoint2 = (event.target.innerWidth >= 400) ? 2 : 1;
-  }
+  //----------------------------------------------------------------------------------------
+  //METHODS
+  //----------------------------------------------------------------------------------------
 
+  /*
+  * Load all flats
+  */
+  loadFlats() {
+    this.flatsService.getFlats()
+      .subscribe((response) => {
+        this.flats = response;
+        console.log("Connexion ok" + response);
+      },
+        (error) => {
+          console.log("Erreur Http" + error);
+        });
+  }
 }

@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FlatContactComponent } from './flat-contact/flat-contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './core/footer/footer.component';
 
 
 
@@ -31,6 +33,7 @@ import { FlatContactComponent } from './flat-contact/flat-contact.component';
     FlatBookingComponent,
     HomeComponent,
     FlatContactComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +49,8 @@ import { FlatContactComponent } from './flat-contact/flat-contact.component';
     ReactiveFormsModule,
     MatInputModule,
     FormsModule,
-    MatGridListModule
-   
+    MatGridListModule,
+    HttpClientModule
   ],
   entryComponents: [
     FlatBookingComponent

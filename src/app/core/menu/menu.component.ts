@@ -9,6 +9,9 @@ import { FlatDetailComponent } from 'src/app/flat-detail/flat-detail.component';
 })
 export class MenuComponent implements OnInit {
 
+  //----------------------------------------------------------------------------------------
+  //ATTRIBUTS
+  //----------------------------------------------------------------------------------------
   navLinks = [
     { label: 'Appartements', link: '/flats/home'},
     { label: 'Le Blue Bay', link: '/flats/0'}, //Add link of menu
@@ -19,14 +22,17 @@ export class MenuComponent implements OnInit {
   ]
   activeLinkIndex: number = -1;
 
+  //----------------------------------------------------------------------------------------
+  //CONSTRUCTOR
+  //----------------------------------------------------------------------------------------
   constructor(private router: Router) { }
 
+  //----------------------------------------------------------------------------------------
+  //METHODS
+  //----------------------------------------------------------------------------------------
   ngOnInit() {
     this.router.events.subscribe((res) => {
-      this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));//Permet le fonctionnement animation menu
-      console.log(this.router.url);
-      
+    this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));//Permet le fonctionnement animation menu
   });
   }
-
 }

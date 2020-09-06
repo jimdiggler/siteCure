@@ -1,4 +1,4 @@
-import { Flat } from '../beans/flat';
+/*import { Flat } from '../beans/flat';
 
 export const FLATS: Flat[] = [
     {
@@ -45,4 +45,4 @@ export const FLATS: Flat[] = [
         lowSeason: 500,
         pickSeason: 540
     }
-]
+]*/
