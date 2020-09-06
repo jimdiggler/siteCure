@@ -22,6 +22,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FlatContactComponent } from './flat-contact/flat-contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './core/footer/footer.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -60,7 +61,8 @@ import { FooterComponent } from './core/footer/footer.component';
     NO_ERRORS_SCHEMA
   ],
   providers: [
-    MatDatepickerModule
+    MatDatepickerModule,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}// for refresh browser
   ],
   bootstrap: [AppComponent]
 })
