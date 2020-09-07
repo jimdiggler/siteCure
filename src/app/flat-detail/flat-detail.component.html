@@ -5,7 +5,17 @@
                 <div class="col-12 col-md-6 text-center text-md-left margins">
                     <h1>{{flat?.name}}</h1>
                     <h5>{{flat?.type}} à {{flat?.location}}</h5>
-                    <h6>{{flat?.description}}</h6>
+                    <br>
+                    <h6><strong>Appartement: </strong>{{flat?.type}} de {{flat?.area}}</h6>
+                    <h6><strong>Couchages: </strong>{{flat?.bed}} </h6>
+                    <h6><strong>Étage: </strong>{{flat?.floor}} </h6>
+                    <h6><strong>Équipements Cuisine: </strong>{{flat?.kitchenEquipments}} </h6>
+                    <h6><strong>Équipements Salle de Bain: </strong>{{flat?.bathRoomEquipments}} </h6>
+                    <h6><strong>Autres équipements: </strong>{{flat?.otherEquipments}} </h6>
+                    <h6><strong>Extérieur: </strong>{{flat?.exterior}} </h6>
+                    <h6><strong>Pratique: </strong>{{flat?.practical}} </h6>
+                    <h6><strong>Tarif: </strong> de {{flat?.lowSeason}}€ à {{flat?.pickSeason}}€ les trois semaines, selon la période. Chèques vacances acceptés. </h6>
+                    <br>
                         <button class="btn btn-outline-light" routerLink="/flats/contact">RESERVER</button><!--Ouverture pour futur formulaire de reservation-->
                         <button class="btn btn-outline-light">SHARE</button>
                 </div>
@@ -21,10 +31,10 @@
                             <img class="d-block w-100" src="{{flat?.photo1}}" alt="Photo Appartement">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="./assets/logo.png" alt="Photo Appartement">
+                            <img class="d-block w-100" src="{{flat?.photo2}}" alt="Photo Appartement">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block w-100" src="{{flat?.photo1}}" alt="Photo Appartement">
+                            <img class="d-block w-100" src="{{flat?.photo3}}" alt="Photo Appartement">
                           </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
