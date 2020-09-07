@@ -13,8 +13,8 @@ export class FlatsService {
   //----------------------------------------------------------------------------------------
   //ATTRIBUTS
   //----------------------------------------------------------------------------------------
-  static readonly REST_SERVER_LOCAL = "http://localhost:3000/flats/"
-  //static readonly REST_SERVER_LOCAL = "https://site-cure-server.herokuapp.com/flats/"
+  //static readonly REST_SERVER_LOCAL = "http://localhost:3000/flats/"
+  static readonly REST_SERVER_LOCAL = "https://site-cure-server.herokuapp.com/flats/"
 
   //----------------------------------------------------------------------------------------
   //CONSTRUCTOR
