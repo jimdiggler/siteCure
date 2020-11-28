@@ -1,33 +1,26 @@
-import { Injectable } from '@angular/core';
-//import { FLATS} from '../datas/listFlat';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { Flat } from '../beans/flat';
+import { Injectable } from '@angular/core';
+import { Lodger } from '../beans/lodger';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FlatsService {
+export class LodgerService {
   //----------------------------------------------------------------------------------------
   //ATTRIBUTS
   //----------------------------------------------------------------------------------------
-  //static readonly REST_SERVER_LOCAL = "http://localhost:3000/flats/"
-  static readonly REST_SERVER_LOCAL = "https://site-cure-server.herokuapp.com/flats/"
+  //static readonly REST_SERVER_LOCAL = "http://localhost:3000/lodgers/"
+  static readonly REST_SERVER_LOCAL = "https://site-cure-server.herokuapp.com/lodgers/"
 
   //----------------------------------------------------------------------------------------
   //CONSTRUCTOR
   //----------------------------------------------------------------------------------------
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //----------------------------------------------------------------------------------------
   //METHODS
   //----------------------------------------------------------------------------------------
-  getFlats(): Observable<Flat[]> {
-    return this.http.get<Flat[]>(FlatsService.REST_SERVER_LOCAL);
-  }
-
-  getFlat(id: string | number) {
-    return this.http.get<Flat>(FlatsService.REST_SERVER_LOCAL + id);
+  addLodger(lodger: Lodger) {
+    return this.http.post<Lodger>(LodgerService.REST_SERVER_LOCAL, lodger);
   }
 }

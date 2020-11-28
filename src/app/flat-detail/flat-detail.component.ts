@@ -20,7 +20,7 @@ export class FlatDetailComponent implements OnInit {
   //----------------------------------------------------------------------------------------
   //CONSTRUCTOR
   //----------------------------------------------------------------------------------------
-  constructor(private route: ActivatedRoute, private flatsService: FlatsService,private dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private flatsService: FlatsService, private dialog: MatDialog) { }
 
   //----------------------------------------------------------------------------------------
   //METHODS
@@ -29,13 +29,13 @@ export class FlatDetailComponent implements OnInit {
     this.route.paramMap.subscribe(p => {
       const id = p.get('id');
       this.flatsService.getFlat(id)
-      .subscribe((response) => {
-        this.flat = response;
-        console.log("Connexion Serveur ok" + response);
-      },
-      (error) => {
-        console.log("Erreur Http" + error);
-      });
+        .subscribe((response) => {
+          this.flat = response;
+          console.log("Connexion Serveur ok" + response);
+        },
+          (error) => {
+            console.log("Erreur Http" + error);
+          });
     })
   }
 
@@ -44,7 +44,10 @@ export class FlatDetailComponent implements OnInit {
     this.dialog.open(FlatBookingComponent, {
       height: '600px',
       width: '600px',
-      data: { name: this.flat.name }
+      data: { 
+        id: this.flat.id,
+        name: this.flat.name
+      }
     });
   }
 }

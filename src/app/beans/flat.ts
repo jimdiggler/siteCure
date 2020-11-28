@@ -2,6 +2,9 @@ export class Flat {
     id: String;
     name: String;
     type: String;
+    door: String;
+    address: String;
+    zipCode: String;
     location: String;
     area: String;
     bed: String;
@@ -16,4 +19,5 @@ export class Flat {
     photo3: String;
     lowSeason: Number;
     pickSeason: Number;
+    ownerId: String;
 }

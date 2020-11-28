@@ -14,9 +14,9 @@
                     <h6><strong>Autres équipements: </strong>{{flat?.otherEquipments}} </h6>
                     <h6><strong>Extérieur: </strong>{{flat?.exterior}} </h6>
                     <h6><strong>Pratique: </strong>{{flat?.practical}} </h6>
-                    <h6><strong>Tarif: </strong> de {{flat?.lowSeason}}€ à {{flat?.pickSeason}}€ les trois semaines, selon la période. Chèques vacances acceptés. </h6>
+                    <h6><strong>Tarif: </strong> de {{flat?.lowSeason}}€ à {{flat?.pickSeason}}€ les trois semaines, selon la période. Taxe de séjour 1.30€ par personne par jour. Chèques vacances acceptés. </h6>
                     <br>
-                        <button class="btn btn-outline-light" routerLink="/flats/contact">RESERVER</button><!--Ouverture pour futur formulaire de reservation-->
+                        <button class="btn btn-outline-light" (click)="openDialog()">RESERVER</button><!--Ouverture pour futur formulaire de reservation-->
                         <button class="btn btn-outline-light">SHARE</button>
                 </div>
                 <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
