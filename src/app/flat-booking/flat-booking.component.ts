@@ -18,10 +18,9 @@ export class FlatBookingComponent implements OnInit {
   //----------------------------------------------------------------------------------------
   //ATTRIBUTS
   //----------------------------------------------------------------------------------------
-  //static readonly PDF_LOCAL = "http://localhost:3000/pdf/"
-  static readonly PDF_LOCAL = "https://site-cure-server.herokuapp.com/pdf/"
   submitted: boolean = false; // Know if the form has been submit
   today = new Date();
+  blob: Blob;
 
   contactForm = this.fb.group({
     id: [null],
@@ -69,27 +68,24 @@ export class FlatBookingComponent implements OnInit {
     if (this.contactForm.invalid) {
       return;
     } else {
-      this.lodgerService.addLodger(this.contactForm.value).subscribe();
+      //Save the form in dataBase / call the pdf with the new lodger's id / Blob response type for pdf
+      this.lodgerService.addLodger(this.contactForm.value).subscribe((v) =>
+      {console.log(v.id);
+      this.lodgerService.getPdf(v.id).subscribe((data) => {
+        this.blob = new Blob([data], { type: 'application.pdf'});
+        var downloadURL = window.URL.createObjectURL(data);
+        var link = document.createElement('a');
+        link.href = downloadURL;
+        link.download = "Contrat-Location.pdf";
+        link.click();
+      });  
+      });
       this.router.navigate(['/']);
-      setTimeout(() => { // Time for waiting the lodger have to be saved 
-        this.loadPdf()
-      }, 2000);
       this.dialogRef.close();
     }
   }
 
   closeDialog(): void {
     this.dialogRef.close();
-  }
-
-  /*
-  * Open pdf / Inject Document / Necessary for open refresh browser
-  */
-  loadPdf(): void {
-    const link = this.document.createElement('a');
-    link.target = '_blank';
-    link.href = FlatBookingComponent.PDF_LOCAL;
-    link.click();
-    link.remove();
   }
 }
