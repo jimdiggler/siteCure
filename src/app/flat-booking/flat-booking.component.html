@@ -5,7 +5,7 @@
   <div class="row mt-2 d-flex justify-content-around">
     <div class="form-group">
       <label for="startDate">Date de début :</label>
-      <input class="form-control" type="date" id="startDate" formControlName="startDate"
+      <input class="form-control" type="date" id="startDate" formControlName="startDate" placeholder="jj/mm/aaaa"
         [ngClass]="{'is-invalid': submitted && f.startDate.errors}">
       <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
         <div *ngIf="f.startDate.errors.required">La date de début doit être saisie</div>
@@ -14,7 +14,7 @@
     <div class="form-group">
       <label for="endDate">Date de fin :</label>
       <input class="form-control" type="date" id="endDate" formControlName="endDate" min="{{contactForm.value.startDate}}"
-        [ngClass]="{'is-invalid': submitted && f.endDate.errors}">
+      placeholder="jj/mm/aaaa" [ngClass]="{'is-invalid': submitted && f.endDate.errors}">
       <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
         <div *ngIf="f.endDate.errors.required">La date de fin doit être saisie</div>
       </div>
@@ -69,7 +69,7 @@
     <div class="col">
       <div class="form-group">
         <label for="dateOfBirth1">Date de naissance :</label>
-        <input class="form-control" type="date" id="dateOfBirth1" formControlName="dateOfBirth1"
+        <input class="form-control" type="date" id="dateOfBirth1" formControlName="dateOfBirth1" placeholder="jj/mm/aaaa"
           [ngClass]="{'is-invalid': submitted && f.dateOfBirth1.errors}">
         <div *ngIf="submitted && f.dateOfBirth1.errors" class="invalid-feedback">
           <div *ngIf="f.dateOfBirth1.errors.required">La date de naissance doit être saisie</div>
@@ -139,7 +139,7 @@
     <div class="col">
       <div class="form-group">
         <label for="dateOfBirth2">Date de naissance :</label>
-        <input class="form-control" type="date" id="dateOfBirth2" formControlName="dateOfBirth2">
+        <input class="form-control" type="date" id="dateOfBirth2" formControlName="dateOfBirth2" placeholder="jj/mm/aaaa">
       </div>
     </div>
   </div>
