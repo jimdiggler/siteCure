@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './core/menu/menu.component';
@@ -23,6 +22,8 @@ import { FlatContactComponent } from './flat-contact/flat-contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './core/footer/footer.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 
 
@@ -51,7 +52,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatInputModule,
     FormsModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    }),
+    ShareIconsModule
   ],
   entryComponents: [
     FlatBookingComponent
