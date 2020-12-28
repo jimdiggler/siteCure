@@ -67,7 +67,7 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
   ],
   providers: [
     MatDatepickerModule,
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },// Format datePicker DD/MM/YYYY
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },// Format datePicker DD/MM/YYYY
     { provide: LocationStrategy, useClass: HashLocationStrategy}// for refresh browser
   ],
   bootstrap: [AppComponent]
