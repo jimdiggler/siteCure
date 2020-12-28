@@ -1,195 +1,146 @@
+<!--Flat title-->
 <h2>{{data.name}}</h2>
-
+<!--Form-->
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <h5 class="mt-3">Dates souhaitées</h5>
   <div class="row mt-2 d-flex justify-content-around">
-    <div class="form-group">
-      <label for="startDate">Date de début :</label>
-      <input class="form-control" type="date" id="startDate" formControlName="startDate" placeholder="jj/mm/aaaa"
-        [ngClass]="{'is-invalid': submitted && f.startDate.errors}">
-      <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
-        <div *ngIf="f.startDate.errors.required">La date de début doit être saisie</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="endDate">Date de fin :</label>
-      <input class="form-control" type="date" id="endDate" formControlName="endDate" min="{{contactForm.value.startDate}}"
-      placeholder="jj/mm/aaaa" [ngClass]="{'is-invalid': submitted && f.endDate.errors}">
-      <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
-        <div *ngIf="f.endDate.errors.required">La date de fin doit être saisie</div>
-      </div>
-    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Entrez vos dates de réservation</mat-label>
+      <mat-date-range-input [rangePicker]="picker" [min]="today">
+        <input matStartDate formControlName="startDate" placeholder="Date début">
+        <input matEndDate formControlName="endDate" placeholder="Date fin">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+      <mat-error *ngIf="contactForm.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="contactForm.controls.endDate.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
   </div>
-
   <h5 class="mt-3">Locataires</h5>
   <div class="row mx-md">
     <div class="col">
-      <div class="form-group">
-        <label for="lastName1">Nom :</label>
-        <input class="form-control" type="text" id="lastName1" formControlName="lastName1"
-          [ngClass]="{'is-invalid': submitted && f.lastName1.errors}">
-        <div *ngIf="submitted && f.lastName1.errors" class="invalid-feedback">
-          <div *ngIf="f.lastName1.errors.required">Le nom doit être saisi</div>
-        </div>
-      </div>
+      <mat-form-field class="lastName" appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="lastName1" placeholder="Nom" required>
+        <mat-error *ngIf="contactForm.controls.lastName1.hasError('required')">Nom obligatoire</mat-error>
+      </mat-form-field>
     </div>
     <div class="col">
-      <div class="form-group">
-        <label for="firstName1">Prénom :</label>
-        <input class="form-control" type="text" id="firstName1" formControlName="firstName1"
-          [ngClass]="{'is-invalid': submitted && f.firstName1.errors}">
-        <div *ngIf="submitted && f.firstName1.errors" class="invalid-feedback">
-          <div *ngIf="f.firstName1.errors.required">Le prénom doit être saisi</div>
-        </div>
-      </div>
+      <mat-form-field class="firstName" appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="firstName1" placeholder="Prénom" required>
+        <mat-error *ngIf="contactForm.controls.firstName1.hasError('required')">Prénom obligatoire</mat-error>
+      </mat-form-field>
     </div>
   </div>
+  <div class="row d-flex justify-content-around">
+    <div class="col-12 col-md-4">
+      <mat-form-field class="email" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email1" placeholder="E-mail"
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" required>
+        <mat-error *ngIf="contactForm.controls.email1.hasError('required')">Adresse e-mail obligatoire</mat-error>
+        <mat-error
+          *ngIf="!contactForm.controls.email1.hasError('required') && (contactForm.controls.email1.hasError('pattern') || contactForm.controls.email1.invalid)">
+          L'adresse e-mail n'est pas valide</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="telephone" appearance="outline">
+        <mat-label>Téléphone</mat-label>
+        <input matInput formControlName="phoneNumber1" placeholder="Téléphone" required>
+        <mat-error *ngIf="contactForm.controls.phoneNumber1.hasError('required')">Numéro de téléphone obligatoire
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="dateOfBirth" appearance="outline">
+        <mat-label>Date de naissance :</mat-label>
+        <input matInput formControlName="dateOfBirth1" [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-form-field class="address" appearance="outline">
+    <mat-label>Adresse</mat-label>
+    <input matInput formControlName="address1" placeholder="Adresse" required>
+    <mat-error *ngIf="contactForm.controls.address1.hasError('required')">Adresse obligatoire</mat-error>
+  </mat-form-field>
   <div class="row mx-md">
-    <div class="col">
-      <div class="form-group">
-        <label for="email1">E-mail :</label>
-        <input class="form-control" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" id="email1"
-          formControlName="email1" [ngClass]="{'is-invalid': submitted && f.email1.errors}">
-        <div *ngIf="submitted && f.email1.errors" class="invalid-feedback">
-          <div *ngIf="f.email1.errors.required">L'adresse e-mail doit être saisie</div>
-          <div *ngIf="f.email1.errors.pattern">L'adresse e-mail n'est pas valide</div>
-        </div>
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="zipCode" appearance="outline">
+        <mat-label>Code Postal</mat-label>
+        <input matInput formControlName="zipCode1" placeholder="Code postal" required>
+        <mat-error *ngIf="contactForm.controls.zipCode1.hasError('required')">Code postal obligatoire</mat-error>
+      </mat-form-field>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="phoneNumber1">Téléphone :</label>
-        <input class="form-control" type="tel" id="phoneNumber1" formControlName="phoneNumber1"
-          [ngClass]="{'is-invalid': submitted && f.phoneNumber1.errors}">
-        <div *ngIf="submitted && f.phoneNumber1.errors" class="invalid-feedback">
-          <div *ngIf="f.phoneNumber1.errors.required">La date de naissance doit être saisie</div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="dateOfBirth1">Date de naissance :</label>
-        <input class="form-control" type="date" id="dateOfBirth1" formControlName="dateOfBirth1" placeholder="jj/mm/aaaa"
-          [ngClass]="{'is-invalid': submitted && f.dateOfBirth1.errors}">
-        <div *ngIf="submitted && f.dateOfBirth1.errors" class="invalid-feedback">
-          <div *ngIf="f.dateOfBirth1.errors.required">La date de naissance doit être saisie</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="address1">Adresse :</label>
-    <input class="form-control" type="text" id="address1" formControlName="address1"
-      [ngClass]="{'is-invalid': submitted && f.address1.errors}">
-    <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
-      <div *ngIf="f.address1.errors.required">L'adresse doit être saisie</div>
-    </div>
-  </div>
-  <div class="row mx-md">
-    <div class="col">
-      <div class="form-group">
-        <label for="zipCode1">Code postal :</label>
-        <input class="form-control" type="text" id="zipCode1" formControlName="zipCode1"
-          [ngClass]="{'is-invalid': submitted && f.zipCode1.errors}">
-        <div *ngIf="submitted && f.zipCode1.errors" class="invalid-feedback">
-          <div *ngIf="f.zipCode1.errors.required">Le code postal doit être saisi</div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="location1">Ville :</label>
-        <input class="form-control" type="text" id="location1" formControlName="location1"
-          [ngClass]="{'is-invalid': submitted && f.location1.errors}">
-        <div *ngIf="submitted && f.location1.errors" class="invalid-feedback">
-          <div *ngIf="f.location1.errors.required">La ville doit être saisie</div>
-        </div>
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="location" appearance="outline">
+        <mat-label>Ville</mat-label>
+        <input matInput formControlName="location1" placeholder="Ville" required>
+        <mat-error *ngIf="contactForm.controls.location1.hasError('required')">Ville obligatoire</mat-error>
+      </mat-form-field>
     </div>
   </div>
   <h6><i>(2eme Personne Facultative)</i></h6>
   <div class="row mx-md">
-    <div class="col">
-      <div class="form-group">
-        <label for="lastName2">Nom :</label>
-        <input class="form-control" type="text" id="lastName2" formControlName="lastName2">
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="lastName" appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="lastName2" placeholder="Nom">
+      </mat-form-field>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="firstName2">Prénom :</label>
-        <input class="form-control" type="text" id="firstName2" formControlName="firstName2">
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="firstName" appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="firstName2" placeholder="Prénom">
+      </mat-form-field>
     </div>
   </div>
   <div class="row mx-md">
-    <div class="col">
-      <div class="form-group">
-        <label for="email2">E-mail :</label>
-        <input class="form-control" type="email" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" id="email2"
-          formControlName="email2">
-      </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="email" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email2" placeholder="E-mail"
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$">
+        <mat-error *ngIf="contactForm.controls.email2.hasError('pattern') || contactForm.controls.email2.invalid">
+          L'adresse e-mail n'est pas valide</mat-error>
+      </mat-form-field>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="phoneNumber2">Téléphone :</label>
-        <input class="form-control" type="tel" id="phoneNumber2" formControlName="phoneNumber2">
-      </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="telephone" appearance="outline">
+        <mat-label>Téléphone</mat-label>
+        <input matInput formControlName="phoneNumber2" placeholder="Téléphone">
+      </mat-form-field>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="dateOfBirth2">Date de naissance :</label>
-        <input class="form-control" type="date" id="dateOfBirth2" formControlName="dateOfBirth2" placeholder="jj/mm/aaaa">
-      </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="dateOfBirth" appearance="outline">
+        <mat-label>Date de naissance :</mat-label>
+        <input matInput formControlName="dateOfBirth2" [matDatepicker]="picker3">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
     </div>
   </div>
-  <div class="form-group">
-    <label for="address2">Adresse :</label>
-    <input class="form-control" type="text" id="address2" formControlName="address2">
-  </div>
+  <mat-form-field class="address" appearance="outline">
+    <mat-label>Adresse</mat-label>
+    <input matInput formControlName="address2" placeholder="Adresse">
+  </mat-form-field>
   <div class="row mx-md">
-    <div class="col">
-      <div class="form-group">
-        <label for="zipCode2">Code postal :</label>
-        <input class="form-control" type="text" id="zipCode2" formControlName="zipCode2">
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="zipCode" appearance="outline">
+        <mat-label>Code Postal</mat-label>
+        <input matInput formControlName="zipCode2" placeholder="Code postal">
+      </mat-form-field>
     </div>
-    <div class="col">
-      <div class="form-group">
-        <label for="location2">Ville :</label>
-        <input class="form-control" type="text" id="location2" formControlName="location2">
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="location" appearance="outline">
+        <mat-label>Ville</mat-label>
+        <input matInput formControlName="location2" placeholder="Ville">
+      </mat-form-field>
     </div>
   </div>
   <button type="submit" class="btn btn-outline-info">Soumettre</button>
   <button class="btn btn-outline ml-2" (click)="closeDialog()">Fermer</button>
 </form>
-
-<!--<mat-form-field appearance="fill">
-  <mat-label>Entrer votre nom</mat-label>
-  <input matInput type="text" [(ngModel)]="name">
-</mat-form-field>
-<br>
-<mat-form-field appearance="fill">
-  <mat-label>Entrer votre numéro</mat-label>
-  <input matInput type="tel" [(ngModel)]="phone">
-</mat-form-field>
-<br>
-<mat-form-field appearance="fill">
-  <mat-label>Entrer vos dates de réservation</mat-label>
-  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-    <input matStartDate formControlName="start" placeholder="Start date">
-    <input matEndDate formControlName="end" placeholder="End date">
-  </mat-date-range-input>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-
-  <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-  <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-</mat-form-field>
-<br>
-<div class="button">
-  <button mat-flat-button (click)="sendForm()">ENVOYER</button>
-  <button mat-flat-button>ANNULER</button>
-</div>-->
-<!--<p>Selected range: {{range.value | json}}</p>-->

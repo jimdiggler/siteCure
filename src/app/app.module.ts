@@ -13,7 +13,7 @@ import { FlatBookingComponent } from './flat-booking/flat-booking.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -62,7 +62,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   ],
   providers: [
     MatDatepickerModule,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}// for refresh browser
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },// Format datePicker DD/MM/YYYY
+    { provide: LocationStrategy, useClass: HashLocationStrategy}// for refresh browser
   ],
   bootstrap: [AppComponent]
 })

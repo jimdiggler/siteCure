@@ -50,4 +50,8 @@ export class FlatDetailComponent implements OnInit {
       }
     });
   }
+
+  openShare() {
+    
+  }
 }
