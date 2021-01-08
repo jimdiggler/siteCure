@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
@@ -43,8 +44,10 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     BrowserAnimationsModule,
     MatTabsModule,
     MatCardModule,
+    MatMomentDateModule,
     MatButtonModule,
     MatDialogModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
@@ -67,7 +70,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
   ],
   providers: [
     MatDatepickerModule,
-    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },// Format datePicker DD/MM/YYYY
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true }},
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },// Format datePicker DD/MM/YYYY
     { provide: LocationStrategy, useClass: HashLocationStrategy}// for refresh browser
   ],
   bootstrap: [AppComponent]
