@@ -8,7 +8,7 @@ import { Lodger } from '../beans/lodger';
 export class LodgerService {
   
   //----------------------------------------------------------------------------------------
-  //ATTRIBUTS
+  //ATTRIBUTES
   //----------------------------------------------------------------------------------------
   //static readonly REST_SERVER_LOCAL = "http://localhost:3000/lodgers/"
   //static readonly REST_PDF_LOCAL = "http://localhost:3000/pdf/"

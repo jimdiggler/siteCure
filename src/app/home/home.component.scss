@@ -1,37 +1,27 @@
 .rowCard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background: #1D1D1F;
 }
 
-.card {
-  margin: 10px;
+::ng-deep .mat-card {
+  border: none;
+  border-radius: 0 !important;
+  max-width: 300px;
 }
 
-.gradientBackground {
-  background: linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
+.imgBackground {
+  background-image: url('/assets/city/aerien.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: whitesmoke;
-}
-
-.logo {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  padding-left: 20px;
-  padding-bottom: 50px;
+  color: white;
+  height: 600px;
 }
 
 button {
   margin: 10px auto;
-}
-
-.container {
-  margin-top: -50px;
-}
-
-.col-12 {
-  padding-top: 50px;
 }
 
 h6 {
@@ -39,10 +29,12 @@ h6 {
   font-size: 18px;
 }
 
-button {
-  font-family: 'JosefinBold'; 
-}
-
 strong {
   font-family: 'JosefinBold';
 }
+
+.text {
+  color: grey; 
+}
+
+

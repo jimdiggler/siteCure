@@ -1,62 +1,58 @@
-<section>
-    <div class="gradientBackground">
-        <div class="container flex-center">
-            <div class="row flex-center pt-5 ">
-                <div class="col-12 col-md-6 text-center text-md-left margins">
-                    <h1>{{flat?.name}}</h1>
-                    <h5>{{flat?.type}} à {{flat?.location}}</h5>
-                    <br>
-                    <h6><strong>Appartement: </strong>{{flat?.type}} de {{flat?.area}}</h6>
-                    <h6><strong>Couchages: </strong>{{flat?.bed}} </h6>
-                    <h6><strong>Étage: </strong>{{flat?.floor}} </h6>
-                    <h6><strong>Équipements Cuisine: </strong>{{flat?.kitchenEquipments}} </h6>
-                    <h6><strong>Équipements Salle de Bain: </strong>{{flat?.bathRoomEquipments}} </h6>
-                    <h6><strong>Autres équipements: </strong>{{flat?.otherEquipments}} </h6>
-                    <h6><strong>Extérieur: </strong>{{flat?.exterior}} </h6>
-                    <h6><strong>Pratique: </strong>{{flat?.practical}} </h6>
-                    <h6><strong>Tarif: </strong> de {{flat?.lowSeason}}€ à {{flat?.pickSeason}}€ les trois semaines, selon la période. Taxe de séjour 1.30€ par personne par jour. Chèques vacances acceptés. </h6>
-                    <br>
-                        <button class="btn btn-outline-light" (click)="openDialog()">RESERVER</button><!--Ouverture pour futur formulaire de reservation-->
-                        <share-buttons [theme]="'material-dark'"
- [include]="['facebook','twitter','linkedin','pinterest','reddit','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']"
- [show]="9"
- [size]="1"
- [url]="'https://locationsbagnolesdelorne.com'"
- [image] ="'https://locationsbagnolesdelorne.com/assets/photoFlat0/apt12salon.jpg'"
- [autoSetMeta]="false"
-></share-buttons>
-                </div>
-                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
-                    <div id="carouselIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
-                        <ol class="carousel-indicators">
-                          <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{flat?.photo1}}" alt="Photo Appartement">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="{{flat?.photo2}}" alt="Photo Appartement">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="{{flat?.photo3}}" alt="Photo Appartement">
-                          </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </div>
-                </div>
+<div class="container flex-center">
+  <div class="row flex-center mt-5 ">
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+      <div id="carouselIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="{{flat?.photo1}}" alt="Photo Appartement">
             </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="{{flat?.photo2}}" alt="Photo Appartement">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="{{flat?.photo3}}" alt="Photo Appartement">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+      </div>
+      <div class="col-12 col-md-6 text-center text-md-left">
+        <h1 class="pt-4">{{flat?.name}}</h1>
+        <h5>{{flat?.type}} à {{flat?.location}}</h5><br>
+        <h6><strong>Appartement: </strong>{{flat?.type}} de {{flat?.area}}</h6>
+        <h6><strong>Couchages: </strong>{{flat?.bed}} </h6>
+        <h6><strong>Étage: </strong>{{flat?.floor}} </h6>
+        <h6><strong>Équipements Cuisine: </strong>{{flat?.kitchenEquipments}} </h6>
+        <h6><strong>Équipements Salle de Bain: </strong>{{flat?.bathRoomEquipments}} </h6>
+        <h6><strong>Autres équipements: </strong>{{flat?.otherEquipments}} </h6>
+        <h6><strong>Extérieur: </strong>{{flat?.exterior}} </h6>
+        <h6><strong>Pratique: </strong>{{flat?.practical}} </h6>
+        <h6><strong>Tarif: </strong> de {{flat?.lowSeason}}€ à {{flat?.pickSeason}}€ les trois semaines, selon la période. Taxe de séjour 1.30€ par personne par jour. Chèques vacances acceptés. </h6><br>
+        <button class="btn btn-outline-info" (click)="openDialog()">RESERVER</button><!--Ouverture pour futur formulaire de reservation-->
+        <share-buttons 
+          [theme]="'material-dark'"
+          [include]="['facebook','twitter','messenger','whatsapp','sms','email','copy']"
+          [show]="9"
+          [size]="1"
+          [url]="'https://locationsbagnolesdelorne.com'"
+          [image] ="'https://locationsbagnolesdelorne.com/assets/photoFlat0/apt12salon.jpg'"
+          [autoSetMeta]="false">
+        </share-buttons>
+      </div>
     </div>
-</section>
+  </div>
+
 
 

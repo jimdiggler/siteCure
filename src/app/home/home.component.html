@@ -1,33 +1,35 @@
-<section>
-    <div class="gradientBackground">
-        <div class="container flex-center">
-            <div class="row flex-center pt-5 ">
-                <div class="col-12 col-md-6 text-center text-md-left margins">
-                    <h1>Votre Location à Bagnoles de l'Orne</h1><br>
-                    <h5>Besoin de faire une pause ? De vous détendre ou simplement de vous ressourcer ? Venez nous rejoindre à Bagnoles de l’Orne !<br><br></h5>
-                    <h6>Profitez de votre séjour pour vous oxygéner lors de balades en pleine nature dans la forêt des Andaines, pour découvrir les richesses gastronomiques de la Normandie, et pour recharger les batteries aux Thermes de cette station à la richesse historique incroyable.<br>
-                        Le parc du Château et son parcours de santé, le mini-golf et les pédalos des abords du lac, le Casino… Cette cité thermale a forcément de quoi satisfaire les petits comme les grands !<br>
-                        Pour profiter au mieux de votre séjour, venez loger chez nous ! On vous promet que vous vous sentirez comme chez vous, et ce dans n'importe lequel de nos logements, tous <strong>classés 3 étoiles</strong>... <br><br></h6>
-                        <h5>À vous Les Clefs de Bagnoles !</h5>
-                    
-                    <button class="btn btn-outline-light" routerLink="/flats/contact">Contact</button>
-                </div>
-                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
-                    <img class="logo" src="./assets/logo.png">
-                </div>
-            </div>
-        </div>
+<!-- TITLE -->
+<div class="row imgBackground">
+    <div class="col-12 text-center align-self-center">
+        <h1>Votre Location à Bagnoles de l'Orne</h1>
+     </div>
+</div>
+    
+<!-- CONTENT -->
+<div class="row py-5 justify-content-center">
+    <div class="col-12 col-lg-6 text text-center">
+        <h5>Besoin de faire une pause ? De vous détendre ou simplement de vous ressourcer ? Venez nous rejoindre à Bagnoles de l’Orne !<br><br></h5>
+        <h6>Profitez de votre séjour pour vous oxygéner lors de balades en pleine nature dans la forêt des Andaines, pour découvrir les richesses gastronomiques de la Normandie, et pour recharger les batteries aux Thermes de cette station à la richesse historique incroyable.<br>
+            Le parc du Château et son parcours de santé, le mini-golf et les pédalos des abords du lac, le Casino… Cette cité thermale a forcément de quoi satisfaire les petits comme les grands !<br>
+            Pour profiter au mieux de votre séjour, venez loger chez nous ! On vous promet que vous vous sentirez comme chez vous, et ce dans n'importe lequel de nos logements, tous <strong>classés 3 étoiles</strong>... <br><br></h6>
+        <h5>À vous Les Clefs de Bagnoles !</h5>               
     </div>
-</section>
-<section class="rowCard">
+</div>
+
+<!-- CARDS -->
+<div class="rowCard p-5">
     <div *ngFor="let flat of flats">
-        <div class="card shadow p-1 mb-4" style="width: 18rem;">
-            <img src="{{flat.photo1}}" class="card-img-top" alt="Photo Appartement">
-            <div class="card-body">
-                <h5 class="card-title">{{flat.name}}</h5>
-                <h6 class="card-text">{{flat.type}} à partir de {{flat.lowSeason}} €<br>(3 semaines)</h6>
+        <mat-card class="m-2 text">
+            <img mat-card-image src="{{flat.photo1}}" class="card-img-top" alt="Photo Appartement">
+            <mat-card-title>{{flat.name}}</mat-card-title>
+            <mat-card-content>
+                <h6>
+                    {{flat.type}} à partir de {{flat.lowSeason}} €<br>(3 semaines)
+                </h6>
+              </mat-card-content>
+              <mat-card-actions>
                 <a routerLink="/flats/{{flat.id}}" class="btn btn-outline-dark" >En Savoir Plus</a>
-            </div>
-        </div>
-    </div>
-</section>
+              </mat-card-actions>
+        </mat-card>
+    </div>    
+</div>

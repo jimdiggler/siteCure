@@ -18,6 +18,9 @@ export class MenuComponent implements OnInit {
     { label: 'Le Bel Air', link: '/flats/1'},
     { label: 'Le Rose Hill', link: '/flats/2'},
     { label: 'Le Floréal', link: '/flats/3'},
+    { label: 'Le Grand Chalet', link: '/flats/4'},
+    // { label: 'Le Chalet', link: ''},
+    { label: 'Le Petit Chalet', link: '/flats/5'},
     { label: 'Contact', link: '/flats/contact'}
   ]
   activeLinkIndex: number = -1;

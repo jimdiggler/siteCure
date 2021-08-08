@@ -1,11 +1,10 @@
-
 // Share Social Icons
-@import '~ngx-sharebuttons/themes/material/material-dark-theme';
-@import '~ngx-sharebuttons/themes/modern/modern-light-theme';
-@import '~ngx-sharebuttons/themes/circles/circles-dark-theme';
+@import "~ngx-sharebuttons/themes/material/material-dark-theme";
+@import "~ngx-sharebuttons/themes/modern/modern-light-theme";
+@import "~ngx-sharebuttons/themes/circles/circles-dark-theme";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 //Import BootStrap
 @import "~bootstrap/dist/css/bootstrap.css";
@@ -38,36 +37,42 @@ $webCure-theme: mat-light-theme($webCure-primary, $webCure-accent, $webCure-warn
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html,
+body {
+    height: 100%;
+}
 
-.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar { background: #ffffff; }  // change la couleur du ink dans les tabs
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background: #ffffff;
+} // change la couleur du ink dans les tabs
 
 /*
 * IMPORT CUSTOM FONTS
 */
 @font-face {
-    font-family: Abril Fatface;
-    src: url(assets/fonts/AbrilFatface-Regular.ttf) format("truetype")
+    font-family: FuturaHeavy;
+    src: url(assets/fonts/Futura-Heavy-font.ttf) format("truetype");
 }
 
-@font-face{
+@font-face {
     font-family: JosefinBold;
-    src: url(assets/fonts/JosefinSans-Bold.ttf) format("truetype")
+    src: url(assets/fonts/JosefinSans-Bold.ttf) format("truetype");
 }
 
-@font-face{
+@font-face {
     font-family: JosefinLight;
-    src: url(assets/fonts/JosefinSans-Light.ttf) format("truetype")
+    src: url(assets/fonts/JosefinSans-Light.ttf) format("truetype");
 }
 
 h1 {
-    font-family: 'Abril Fatface';  
-  }
-  
+    font-family: "FuturaHeavy";
+}
+
 h5 {
-      font-family: 'JosefinBold';
-  }
-h6{
-    font-family: 'JosefinLight';
-    font-size: 18px;
+    font-family: "Futura";
+}
+
+h6 {
+    font-family: "JosefinLight";
 }
