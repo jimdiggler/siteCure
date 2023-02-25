@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Lodger } from '../beans/lodger';
 import { LodgerService } from '../services/lodger.service';
 
 //----------------------------------------------------------------------------------------
@@ -21,29 +22,9 @@ export class FlatBookingComponent implements OnInit {
   submitted: boolean = false; // Know if the form has been submit
   today = new Date();
   blob: Blob;
+  contactForm: FormGroup;
 
-  contactForm = this.fb.group({
-    id: [null],
-    startDate: ['', Validators.required],
-    endDate: ['', Validators.required],
-    lastName1: ['', Validators.required],
-    firstName1: ['', Validators.required],
-    phoneNumber1: ['', Validators.required],
-    email1: ['', [Validators.required, Validators.email, Validators.pattern]],
-    dateOfBirth1: ['', Validators.required],
-    address1: ['', Validators.required],
-    zipCode1: ['', Validators.required],
-    location1: ['', Validators.required],
-    lastName2: [''],
-    firstName2: [''],
-    phoneNumber2: [''],
-    email2: [''],
-    dateOfBirth2: [''],
-    address2: [''],
-    zipCode2: [''],
-    location2: [''],
-    flatId: [this.data.id, Validators.required]
-  });
+  
 
   
 
@@ -55,7 +36,30 @@ export class FlatBookingComponent implements OnInit {
   //----------------------------------------------------------------------------------------
   //METHODS
   //----------------------------------------------------------------------------------------
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      id:[null],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      lastName1: ['', Validators.required],
+      firstName1: ['', Validators.required],
+      phoneNumber1: ['', Validators.required],
+      email1: ['', [Validators.required, Validators.email, Validators.pattern]],
+      dateOfBirth1: ['', Validators.required],
+      address1: ['', Validators.required],
+      zipCode1: ['', Validators.required],
+      location1: ['', Validators.required],
+      lastName2: [''],
+      firstName2: [''],
+      phoneNumber2: [''],
+      email2: [''],
+      dateOfBirth2: [''],
+      address2: [''],
+      zipCode2: [''],
+      location2: [''],
+      flatId: [this.data.id, Validators.required]
+    });
+  }
 
   // convenience getter for easy access to form fields
   get f() { return this.contactForm.controls; }
