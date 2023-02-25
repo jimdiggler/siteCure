@@ -3,8 +3,11 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // Plus imports for other components in your app.
-//Import BootStrap
-@import "~bootstrap/dist/css/bootstrap.css";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -57,18 +60,18 @@ body {
 * IMPORT CUSTOM FONTS
 */
 @font-face {
-    font-family: FuturaHeavy;
-    src: url(assets/fonts/Futura-Heavy-font.ttf) format("truetype");
+  font-family: "FuturaHeavy";
+  src: url("assets/fonts/Futura-Heavy-font.ttf");
 }
 
 @font-face {
-    font-family: JosefinBold;
-    src: url(assets/fonts/JosefinSans-Bold.ttf) format("truetype");
+    font-family: "JosefinBold";
+    src: url("assets/fonts/JosefinSans-Bold.ttf");
 }
 
 @font-face {
-    font-family: JosefinLight;
-    src: url(assets/fonts/JosefinSans-Light.ttf) format("truetype");
+    font-family: "JosefinLight";
+    src: url("assets/fonts/JosefinSans-Light.ttf");
 }
 
 h1 {
